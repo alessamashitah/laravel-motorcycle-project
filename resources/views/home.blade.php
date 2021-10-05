@@ -15,6 +15,12 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                </div>
+
+                <div class="card-body">
+                <a href="{{ route('motorcycleindex')}}" type="button" class="btn btn-dark">Motorcycle</a>
+                    
                 </div>
             </div>
         </div>
