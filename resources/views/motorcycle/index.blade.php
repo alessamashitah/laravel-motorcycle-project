@@ -5,12 +5,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session()->has('alert-message'))
+                <div class="alert {{session()->get('alert-type')}}">
+                    {{ session()->get('alert-message') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                 <a href="{{ route('motorcycleadd')}}" type="button" class="btn btn-dark">Add Motorcycle</a>
                 </div>
+               
 
                 <div class="card-body">
                 <table class="table">
