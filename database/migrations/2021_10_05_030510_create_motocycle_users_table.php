@@ -14,13 +14,13 @@ class CreateMotocycleUsersTable extends Migration
     public function up()
     {
         Schema::create('motocycle_users', function (Blueprint $table) {
-            $table->increment(id);
-            $table->unsignedIntegereinteger(user_id)->nullable;
-            $table->unsignedInteger(motocycle_id)->nullable;
+            $table->increments('id');
+            $table->unsignedInteger('user_id')->nullable;
+            $table->unsignedInteger('motocycle_id')->nullable;
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('motocycle_id')->references('id')->on('motocycles')->onDelete('cascade');
+            $table->foreign('motocycle_id')->references('id')->on('motorcycles')->onDelete('cascade');
         });
     }
 

@@ -14,9 +14,9 @@ class CreateMotorcyclesTable extends Migration
     public function up()
     {
         Schema::create('motorcycles', function (Blueprint $table) {
-            $table->increment(id);
-            $table->string(type);
-            $table->string(colour);
+            $table->increments('id');
+            $table->string('type');
+            $table->string('colour');
             $table->timestamps();
         });
     }
