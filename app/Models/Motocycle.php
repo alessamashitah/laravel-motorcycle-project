@@ -14,4 +14,9 @@ class Motocycle extends Model
         'type',
         'colour',
     ];
+
+    public function Users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
