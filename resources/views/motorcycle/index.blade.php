@@ -25,6 +25,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Type</th>
                         <th scope="col">Colour</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -32,8 +33,11 @@
                         @foreach($motorcycle as $key=>$motorcycle)
                         <tr>
                         <th scope="row">{{ $key + 1}}</th>
-                        <td>{{$motorcycle->type}}</td>
-                        <td>{{$motorcycle->colour}}</td>
+                        <td>{{$motorcycle->motorType->type}}</td>
+                        <td>{{$motorcycle->motorColour->colour}}</td>
+                        <td>
+                        <img src="{{ asset('/storage/motorcycle/'.$motorcycle->image) }}" width="50px;" height="50px;" alt="">
+                        </td>
                         <td><a href="{{ route('motorcycleedit', $motorcycle)}}" type="button" class="btn btn-dark">Edit</a></td>
                         <td><a href="{{ route('motorcycledelete', $motorcycle)}}" type="button" class="btn btn-danger">Delete</a></td>
                         </tr>
