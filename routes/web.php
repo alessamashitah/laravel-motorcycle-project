@@ -26,4 +26,7 @@ Route::get('motorcycle/add', [App\Http\Controllers\MotorcycleController::class, 
 Route::post('motorcycle/store', [App\Http\Controllers\MotorcycleController::class, 'store'])->name('motorcyclestore'); 
 Route::get('motorcycle/{motorcycle}', [App\Http\Controllers\MotorcycleController::class, 'edit'])->name('motorcycleedit');
 Route::post('motorcycle/update/{motorcycle}', [App\Http\Controllers\MotorcycleController::class, 'update'])->name('motorcycleupdate');  
-Route::get('motorcycle/delete/{motorcycle}', [App\Http\Controllers\MotorcycleController::class, 'delete'])->name('motorcycledelete'); 
+Route::get('motorcycle/delete/{motorcycle}', [App\Http\Controllers\MotorcycleController::class, 'delete'])->name('motorcycledelete');
+
+
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
