@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Motor_type;
 use App\Models\Motorcycle;
+use App\Models\Motor_colour;
 use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
@@ -26,7 +28,13 @@ class MotorcycleController extends Controller
      */
     public function create()
     {
-        return view('motorcycle.create');
+        $type = Motor_type::all();
+        $colour = Motor_colour::all();
+        return view('motorcycle.create',compact('type','colour'));
+
+
+
+
     }
 
     /**
@@ -39,8 +47,8 @@ class MotorcycleController extends Controller
     {
         //STORE GUNA RELATIONSHIP
         $motorcycle = new Motorcycle();
-        $motorcycle->type = $request->type;
-        $motorcycle->colour = $request->colour;
+        $motorcycle->motor_type_id = $request->type;
+        $motorcycle->motor_colour_id = $request->colour;
         $motorcycle->save();
 
         return redirect()->route('motorcycleindex')->with([
@@ -68,7 +76,11 @@ class MotorcycleController extends Controller
      */
     public function edit(motorcycle $motorcycle)
     {
-        return view('motorcycle.edit',compact('motorcycle'));
+        $type = Motor_type::all();
+        $colour = Motor_colour::all();
+        return view('motorcycle.edit',compact('type','colour','motorcycle'));
+
+        //return view('motorcycle.edit',compact('motorcycle'));
     }
 
     /**
@@ -80,8 +92,8 @@ class MotorcycleController extends Controller
      */
     public function update(Request $request, motorcycle $motorcycle)
     {
-        $motorcycle->type = $request->type;
-        $motorcycle->colour = $request->colour;
+        $motorcycle->motor_type_id = $request->type;
+        $motorcycle->motor_colour_id = $request->colour;
         $motorcycle->save();
 
         return redirect()->route('motorcycleindex')->with([
@@ -105,4 +117,6 @@ class MotorcycleController extends Controller
             'alert-message'=> 'New motorcycle has been deleted'
         ]);
     }
+
+
 }
