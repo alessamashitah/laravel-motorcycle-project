@@ -13,6 +13,7 @@ class Motorcycle extends Model
         'id',
         'motor_type_id',
         'motor_colour_id',
+        'image',
     ];
 
     public function Users()
