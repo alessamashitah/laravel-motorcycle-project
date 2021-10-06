@@ -15,8 +15,9 @@ class CreateMotorcyclesTable extends Migration
     {
         Schema::create('motorcycles', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('motor_type_id')->nullable;
-            $table->unsignedInteger('motor_colour_id')->nullable;
+            $table->unsignedInteger('motor_type_id')->nullable();
+            $table->unsignedInteger('motor_colour_id')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreign('motor_type_id')->references('id')->on('motor_types')->onDelete('cascade');
