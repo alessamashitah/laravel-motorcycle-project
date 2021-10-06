@@ -14,11 +14,19 @@
                 @csrf
                 <div class="mb-3">
                     <label for="type" class="form-label">Type</label>
-                    <input type="name" class="form-control" id="type" name="type" placeholder="">
+                    <select name="type" id="type">
+                    @foreach($type as $types)
+                    <option value="{{ $types->id}}">{{ $types->type}}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="colour" class="form-label">Colour</label>
-                    <input type="name" class="form-control" id="colour" name="colour" placeholder="">
+                    <select name="colour" id="colour">
+                    @foreach($colour as $colours)
+                    <option value="{{ $colours->id}}">{{ $colours->colour}}</option>
+                    @endforeach
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-light">Submit</button>
