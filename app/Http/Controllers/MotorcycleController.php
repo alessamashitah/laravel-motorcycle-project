@@ -6,6 +6,8 @@ use App\Models\Motor_type;
 use App\Models\Motorcycle;
 use App\Models\Motor_colour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class MotorcycleController extends Controller
 {
@@ -49,7 +51,15 @@ class MotorcycleController extends Controller
         $motorcycle = new Motorcycle();
         $motorcycle->motor_type_id = $request->type;
         $motorcycle->motor_colour_id = $request->colour;
-        $motorcycle->save();
+        $motorcycle->save(); 
+        //dd($request->file());
+        if($request->hasFile('file'))
+        {
+            $filename = $request->file->getClientOriginalName();
+            Storage::disk('public')->put('motorcycle/'.$filename, File::get($request->file));
+            $motorcycle->image = $filename;
+            $motorcycle->save();
+        }
 
         return redirect()->route('motorcycleindex')->with([
             'alert-type' => 'alert-primary',
