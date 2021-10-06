@@ -10,7 +10,7 @@
 
 
                 <div class="card-body">
-                <form method="POST" action="{{ route('motorcyclestore')}}" >
+                <form method="POST" action="{{ route('motorcyclestore')}}" enctype="multipart/form-data"  >
                 @csrf
                 <div class="mb-3">
                     <label for="type" class="form-label">Type</label>
@@ -27,6 +27,10 @@
                     <option value="{{ $colours->id}}">{{ $colours->colour}}</option>
                     @endforeach
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Add Picture</label>
+                    <input class="form-control" type="file" name="file" >
                 </div>
 
                 <button type="submit" class="btn btn-light">Submit</button>
