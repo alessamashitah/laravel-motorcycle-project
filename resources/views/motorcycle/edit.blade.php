@@ -14,11 +14,11 @@
                 @csrf
                 <div class="mb-3">
                     <label for="type" class="form-label">Type</label>
-                    <input type="name" class="form-control" id="type" name="type" value="{{ $motorcycle->type }}" placeholder="type">
+                    <input type="name" class="form-control" id="type" name="type" value="{{ $motorcycle->motorType->type }}" placeholder="type">
                 </div>
                 <div class="mb-3">
                     <label for="colour" class="form-label">Colour</label>
-                    <input type="name" class="form-control" id="colour" name="colour" value="{{ $motorcycle->colour }}" placeholder="colour">
+                    <input type="name" class="form-control" id="colour" name="colour" value="{{ $motorcycle->motorColour->colour }}" placeholder="colour">
                 </div>
 
                 <button type="submit" class="btn btn-light">Submit</button>
