@@ -30,3 +30,5 @@ Route::get('motorcycle/delete/{motorcycle}', [App\Http\Controllers\MotorcycleCon
 
 
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/motorcycle/list', [App\Http\Controllers\Admin\MotorController::class, 'index'])->name('admin:motorcycle');
+Route::get('admin/user/list', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin:user');
