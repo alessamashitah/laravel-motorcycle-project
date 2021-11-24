@@ -15,8 +15,7 @@
 
                 <div class="card-body">
                 <a href="{{ route('motorcycleadd')}}" type="button" class="btn btn-dark">Add Motorcycle</a>
-                </div>
-               
+                </div>     
 
                 <div class="card-body">
                 <table class="table">
