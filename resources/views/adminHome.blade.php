@@ -9,6 +9,10 @@
                 <div class="card-body">
                     You are Admin.
                 </div>
+                <div class="card-body">
+                    <a href="{{ route('admin:motorcycle')}}" type="button" class="btn btn-primary">Motorcycle</a>
+                    <a href="{{ route('admin:user')}}" type="button" class="btn btn-primary">User</a>
+                </div> 
             </div>
         </div>
     </div>
